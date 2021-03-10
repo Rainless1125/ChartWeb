@@ -4,19 +4,25 @@
 <meta charset="utf-8">
 <title></title>
 </head>
-    
+    <div id="test"></div>
 <body>
 
 <div id="test"></div>
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
     var text = '{"name": "Harry", "age": 14}';
-    $(document).ready(function(){
-    	$.getJSON(text, function(data) {
-    		console.log(data.age);
-    	});
-        $("#test").load("./test.text");
-    });
+    var obj = JSON.parse(text);
+    var myArr
+    var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+	     myArr= JSON.parse(this.responseText);
+	     $("#test").text(myArr[0].name);
+	  }
+	};
+	xmlhttp.open("GET", "rank.json", true);
+	xmlhttp.send();
+	
 </script>
 </body>
  
