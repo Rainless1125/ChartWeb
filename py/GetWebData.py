@@ -11,10 +11,10 @@ if __name__ == '__main__':
     df = pd.read_html(table.html())
     for i in range(0,len(df)):#two table
         for row in range(1,df[i].shape[0]):#shape get 11
-        	my_dict['name'] = df[i][1][row]
-        	my_dict['num'] = df[i][2][row]
-        	my_dict['date'] = str(today)
-        	list_data.append(my_dict.copy())
+            my_dict['name'] = df[i][1][row]
+            my_dict['num'] = df[i][2][row]
+            my_dict['date'] = str(today)
+            list_data.append(my_dict.copy())
             #my_dict['name'] = df[i][1][row]
             #rank_table['name','num'] = [df[i][1][row],df[i][2][row]]
             #my_dict[df[i][1][row]] = df[i][2][row]
